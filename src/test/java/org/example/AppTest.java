@@ -16,22 +16,22 @@ public class AppTest extends DriverSetup {
     @Test
     public void testPageTitle() {
 
-        browser.get("https://www.google.com");
+        browser.get("https://eonbazar.com/");
 
         String pageTitle = browser.getTitle();
 
-        Assert.assertEquals(pageTitle, "Google");
+        Assert.assertEquals(pageTitle, "Buy Safe Healthy and Organic Foods Online in BD - EonBazar.com");
 
     }
 
     @Test
     public void testPageUrl() {
 
-        browser.get("https://www.google.com");
+        browser.get("https://eonbazar.com/");
 
         String pageUrl = browser.getCurrentUrl();
 
-        Assert.assertEquals(pageUrl, "https://www.google.com/");
+        Assert.assertEquals(pageUrl, "https://eonbazar.com/");
 
     }
 }
