@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class LocateWebElement extends DriverSetup {
 
     @Test
@@ -16,7 +18,6 @@ public class LocateWebElement extends DriverSetup {
 
 //        searchInput = browser.findElement(By.className("aa-Input"));
 //          searchInput = browser.findElement(By.tagName("input"));
-//        searchInput = browser.findElement(By.cssSelector("input[placeholder='Search for products (e.g. chicken, paratha, milk)']"));
 //        searchInput = browser.findElement(By.xpath("//input[@name='q']"));
 
         // custom selector
@@ -26,7 +27,39 @@ public class LocateWebElement extends DriverSetup {
 //        searchInput = browser.findElement(By.cssSelector(".className"));
 //        searchInput = browser.findElement(By.cssSelector("[name='q']"));
 //        searchInput = browser.findElement(By.xpath("//*[@name='q']"));
-        searchInput = browser.findElement(By.cssSelector("label[class=\"relative block\"]>input"));
+        // Multiple attribute
+//        input[id="q"][name="q"] -> css selector
+          //input[@id="q" and @name="q"] -> xpath
+
+        //If Dynamically change the attribute value
+          //input[contains(id,"q")]
+          //input[stars-with(id,"q")]
+          //input[ends-with(id,"q")]
+
+        // Find with text
+           //*[text()="Sign in"]
+           //*[contains(text(),"Sign in")] -> concat text and contains
+           //a[contains(text(),"Sign in")] -> with specific tag
+
+        // Find element with indexing
+           //ul[@class="grid grid-cols-10 gap-2 justify-between w-full"]/li[4]
+           //ul[@class="grid grid-cols-10 gap-2 justify-between w-full"]/li[last()] -> don't know amount's element
+        // with css selector
+           // ul[class="grid grid-cols-10 gap-2 justify-between w-full"] > li:first-child
+           // ul[class="grid grid-cols-10 gap-2 justify-between w-full"] > li:nth-child(4)
+
+        /* Detect sibling elements
+           এখানে 4 নাম্বার li এর অপরে যতগুলো li আছে সেগুলো detect করবে।
+           //ul[@class="grid grid-cols-10 gap-2 justify-between w-full"]/li[4] /preceding-sibling::li
+
+           এখানে 4 নাম্বার li এর নিচে যতগুলো li আছে সেগুলো detect করবে।
+           //ul[@class="grid grid-cols-10 gap-2 justify-between w-full"]/li[4] /following-sibling::li
+
+           এখানে যে sibling element কে ধরা আছে তার parent element/tag কে detect করবে যেটা বলে দেওয়া হবে।
+           //ul[@class="grid grid-cols-10 gap-2 justify-between w-full"]/parent::div
+         */
+
+        searchInput = browser.findElement(By.cssSelector("label[class='relative block']>input"));
 //        searchInput = browser.findElement(By.xpath("//label[@class=\"relative block\"]/input"));
         searchInput.sendKeys("chicken");
 
@@ -40,7 +73,12 @@ public class LocateWebElement extends DriverSetup {
 //        browser.findElement(By.id("headlessui-switch-6")).click();
 //        Thread.sleep(5000);
 
+        List<WebElement> all_links = browser.findElements(By.xpath("//a"));
+        for (WebElement all_link: all_links){
+            String text = all_link.getText();
+            System.out.println(text);
+        }
+
     }
 }
 
-// continue with time: 01:03:26
