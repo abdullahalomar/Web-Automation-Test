@@ -36,7 +36,7 @@ public class LocateWebElement extends DriverSetup {
           //input[stars-with(id,"q")]
           //input[ends-with(id,"q")]
 
-        // Find with text
+        // Find with text XPath
            //*[text()="Sign in"]
            //*[contains(text(),"Sign in")] -> concat text and contains
            //a[contains(text(),"Sign in")] -> with specific tag
