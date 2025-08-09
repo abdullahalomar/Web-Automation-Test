@@ -10,7 +10,7 @@ public class LocateWebElement extends DriverSetup {
 
     @Test
     public void testLocalElement() throws InterruptedException {
-        browser.get("https://eonbazar.com");
+        browser.get("https://meenabazaronline.com/");
         WebElement searchInput;
 
 //        searchInput = browser.findElement(By.id("q"));
@@ -59,8 +59,8 @@ public class LocateWebElement extends DriverSetup {
            //ul[@class="grid grid-cols-10 gap-2 justify-between w-full"]/parent::div
          */
 
-        searchInput = browser.findElement(By.cssSelector("label[class='relative block']>input"));
-//        searchInput = browser.findElement(By.xpath("//label[@class=\"relative block\"]/input"));
+//        searchInput = browser.findElement(By.cssSelector("label[class='relative block']>input"));
+        searchInput = browser.findElement(By.xpath("(//input[@placeholder='Search by products brand or name'])[2]"));
         searchInput.sendKeys("chicken");
 
         Thread.sleep(5000);
@@ -73,11 +73,11 @@ public class LocateWebElement extends DriverSetup {
 //        browser.findElement(By.id("headlessui-switch-6")).click();
 //        Thread.sleep(5000);
 
-        List<WebElement> all_links = browser.findElements(By.xpath("//a"));
-        for (WebElement all_link: all_links){
-            String text = all_link.getText();
-            System.out.println(text);
-        }
+//        List<WebElement> all_links = browser.findElements(By.xpath("//a"));
+//        for (WebElement all_link: all_links){
+//            String text = all_link.getText();
+//            System.out.println(text);
+//        }
 
     }
 }

@@ -62,6 +62,8 @@ public class TestWebsite extends DriverSetup {
             Thread.sleep(2000);
         }
 
+        //div[contains(@class,'swiper-slide mb-1')]//span
+
         browser.findElement(By.xpath("//img[@alt='Eonbazar Logo']")).click();
         Thread.sleep(2000);
 
